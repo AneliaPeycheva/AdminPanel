@@ -1,0 +1,152 @@
+<div class="modal-holder" *ngIf="modal.open">
+    <div class="overlay">
+        <div class="modal-new-recipe" *ngIf="modal.cntx == 'add-recipe'">
+            <div class="header">Въвеждане на нова рецепта</div>
+            <div class="input-section">                
+                <span class="label" for="">Заглавие</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.title" >  
+                
+                <span class="label" for="">Съставки</span>    
+                <div class="ingredients-holder"> 
+                    <div class="input-container" *ngFor = "let ingridient of ingredientsTemp; let i = index; trackBy:trackByNum" (keydown)="changedField(ingridient, i)">
+                        <div class="close-icon" (click) = RemoveIngredient(i)></div>                    
+                        <input class="field" type="text"  [(ngModel)] ="ingridient.value">  
+                    </div>                     
+                </div> 
+                <span class="label" for="">Описание</span>    
+                <textarea  rows="10" cols="50" [(ngModel)]="modal.obj.description">              
+                </textarea>  
+                <div class="img-grid">
+                    <div class="addable-img" (click)="openFileManagement($event, 0)" [ngClass]="{ 'added':addRecipe.images_filled[0] != '' }" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[0].toString() + ')' }"><span *ngIf="addRecipe.images_filled[0] == ''">Добавете снимка за проект</span></div>
+                    <div class="addable-img" (click)="openFileManagement($event, 1)" [ngClass]="{ 'added':addRecipe.images_filled[1] != '' }" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[1].toString() + ')' }"><span *ngIf="addRecipe.images_filled[1] == ''">Добавете снимка за проект</span></div>
+                    <div class="addable-img" (click)="openFileManagement($event, 2)" [ngClass]="{ 'added':addRecipe.images_filled[2] != '' }" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[2].toString() + ')' }"><span *ngIf="addRecipe.images_filled[2] == ''">Добавете снимка за проект</span></div>
+                    <div class="addable-img" (click)="openFileManagement($event, 3)" [ngClass]="{ 'added':addRecipe.images_filled[3] != '' }" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[3].toString() + ')' }"><span *ngIf="addRecipe.images_filled[3] == ''">Добавете снимка за проект</span></div>
+                    <div class="addable-img" (click)="openFileManagement($event, 4)" [ngClass]="{ 'added':addRecipe.images_filled[4] != '' }" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[4].toString() + ')' }"><span *ngIf="addRecipe.images_filled[4] == ''">Добавете снимка за проект</span></div>
+                    <input type="file" id="picture-upload0" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 0)" placeholder="Избери файл" />
+                    <input type="file" id="picture-upload1" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 1)" placeholder="Избери файл"/>
+                    <input type="file" id="picture-upload2" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 2)" placeholder="Избери файл"/>
+                    <input type="file" id="picture-upload3" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 3)" placeholder="Избери файл" />
+                    <input type="file" id="picture-upload4" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 4)" placeholder="Избери файл" />
+                </div>                                       
+                <span class="label" for="">Трудност</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.difficulty" >   
+                <span class="label" for="">Време за приготвяне</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.preparation" >  
+                <span class="label" for="">Порции</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.portion" >  
+            </div>
+            <div class="button-holder">
+                <div class="btn secondary-btn" type="submit" (click) = "CloseModal()">Отказ</div>
+                <div class="btn main-btn"  type="submit" (click) = "AddNewRecipe()">Въведи</div>
+            </div>
+        </div>
+        <div class="modal-new-recipe" *ngIf="modal.cntx == 'edit-recipe'">
+            <div class="header">Промяна на рецепта</div>
+            <div class="input-section">     
+                <span class="label" for="">Пореден №</span>     
+                <div class="value">{{modal.obj.uid}}</div>             
+                <span class="label" for="">Заглавие</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.title" >  
+                <span class="label" for="">Описание</span>    
+                <textarea  rows="10" cols="50" [(ngModel)]="modal.obj.description">              
+                </textarea> 
+                <span class="label" for="">Съставки</span>   
+                <div class="ingredients-holder"> 
+                    <div class="input-container" *ngFor = "let ingridient of ingredientsTemp; let i = index;trackBy:trackByNum" (keydown)="changedField(ingridient, i)" >
+                        <div class="close-icon" (click) = RemoveIngredient(i) *ngIf="ingridient.value"></div>                    
+                        <input class="field" type="text" value = {{ingridient.value}}  [(ngModel)] ="ingridient.value">  
+                    </div>                                     
+                </div>    
+                <div class="img-grid">            
+                    <!-- <div class="edited-img" (click)="openFileManagement($event, 0)" [ngStyle]="{ 'background-image': 'url(' + 'assets/images/recipe-' + modal.obj.uid + '-image1' + '.jpeg' + ')' }" ></div>       -->
+                    <div class="edited-img" (click)="openFileManagement($event, 0)" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[0].toString() + ')' }" ></div>
+                    <div class="edited-img" (click)="openFileManagement($event, 1)" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[1].toString() + ')' }"></div>
+                    <div class="edited-img" (click)="openFileManagement($event, 2)" [ngStyle]="{ 'background-image': 'url('+ addRecipe.images[2].toString() + ')' }"></div>
+                    <div class="edited-img" (click)="openFileManagement($event, 3)"[ngStyle]="{ 'background-image': 'url('+ addRecipe.images[3].toString() + ')' }"></div>
+                    <div class="edited-img" (click)="openFileManagement($event, 4)"[ngStyle]="{ 'background-image': 'url('+ addRecipe.images[4].toString() + ')' }"></div>
+                    <input type="file" id="picture-upload0" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 0)" />
+                    <input type="file" id="picture-upload1" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 1)" />
+                    <input type="file" id="picture-upload2" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 2)" />
+                    <input type="file" id="picture-upload3" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 3)" />
+                    <input type="file" id="picture-upload4" accept="image/x-png,image/gif,image/jpeg" (change)="onFileChange($event, 4)" />
+                </div>      
+                <span class="label" for="">Трудност</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.difficulty" >   
+                <span class="label" for="">Време за приготвяне</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.preparation" >  
+                <span class="label" for="">Порции</span>                             
+                <input class="field" type="text" [(ngModel)]="modal.obj.portion" >  
+            </div>
+            <div class="button-holder">
+                <div class="btn secondary-btn" type="submit" (click) = "CloseModal()">Отказ</div>
+                <div class="btn main-btn"  type="submit" (click) = "EditRecipe()">Промени</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="upper-section">   
+    <div class="search-container">
+        <span class="search-icon"></span>
+        <input type="text" [(ngModel)]="textToSearch">
+    </div>
+    <div class="icon-holder" (click)="dataServ.Logout()">
+        <div class="icon logout" ></div>
+    </div>
+    <div class="username-holder">
+        <div class="username">{{dataServ.name}}</div>
+    </div>
+</div>
+<div class="content-section" > 
+    <div class="recipes-holder">
+        <div class="recipes-main-title">Рецепти </div>
+        <div class="button-holder">
+            <div class="btn main-btn" (click)="OpenModal('add-recipe', { title:'', description:'', difficulty:'', preparation:'', portion:'' })">Добави нова рецепта</div> 
+        </div>  
+        <div class="cards-holder" >                     
+            <div class="row-header">
+                <div class="col-lg-1 col-md-1 col-sm-6 col-xs-hidden">№</div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-hidden">Заглавие</div>
+                <div class="col-lg-2 col-md-2 col-sm-hidden col-xs-hidden">Описание</div>
+                <div class="col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">Дата</div>                    
+                <div class="col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">Трудност</div>  
+                <div class="col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">Време</div> 
+                <div class="col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">Порции</div> 
+                <div class="col-lg-2 col-md-2 col-sm-hidden col-xs-hidden"></div>                 
+            </div> 
+            <div class="card" *ngFor="let recipe of dataServ.ReturnRecipes(currentPage,textToSearch)" >
+                <div class="card-item col-lg-1 col-md-1 col-sm-6 col-xs-hidden">
+                    <span class="card-value">{{recipe.uid}}</span>
+                </div>
+                <div class="card-item col-lg-3 col-md-3 col-sm-6 col-xs-hidden">
+                    <span class="card-value">{{recipe.title}}</span>
+                </div>
+                <div class="card-item col-lg-2 col-md-2 col-sm-hidden col-xs-hidden">
+                    <span class="card-value">{{recipe.description}}</span>
+                </div>
+                <div class="card-item col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">
+                    <span class="card-value">{{recipe.data}}</span>
+                </div>         
+                <div class="card-item col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">
+                    <span class="card-value">{{recipe.difficulty}}</span>
+                </div>
+                <div class="card-item col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">
+                    <span class="card-value">{{recipe.preparation}}</span>
+                </div>
+                <div class="card-item col-lg-1 col-md-1 col-sm-hidden col-xs-hidden">
+                    <span class="card-value">{{recipe.portion}}</span>
+                </div>                
+                <div class="card-item col-lg-2 col-md-2 col-sm-hidden col-xs-hidden">
+                    <div class="icons-holder">
+                        <div class="icon edit" (click)="OpenModal('edit-recipe', recipe)"></div>
+                        <div class="icon delete" (click) = "dataServ.DeleteRecipe(recipe.uid)"></div>
+                    </div>                     
+                </div>
+            </div> 
+            <div class="paging-holder" >
+                <div class="paging">                                         
+                    <span class="page" *ngFor = "let page of dataServ.ReturnRecipesPages(textToSearch); let i = index;" [ngClass]= "{ 'active' : currentPage == i }" (click)="clickPage(i)">{{i+1}}</span>                  
+                </div>
+            </div>             
+        </div>
+    </div>
+</div>

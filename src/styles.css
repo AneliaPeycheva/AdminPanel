@@ -1,1 +1,753 @@
-/* You can add global styles to this file, and also import other style files */
+  
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(41, 40, 40);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;     
+    background-color: #131821;
+    height: 100%;
+    width: 100%;
+}
+
+.icon {
+    position: relative;
+    float:left;
+    width: 25px;
+    height: 25px;
+    line-height: 80px;  
+    background-position: center;
+    background-size:100%;
+    background-repeat: no-repeat;
+}
+
+.icon.logout { 
+    margin-top: 28px;
+    background-image: url(./assets/logout.png);
+    cursor: pointer;
+}
+
+
+.login-page-holder {
+    position: relative;
+    float:left;
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/intro.jpg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+    .login-form-section {
+        position: relative;
+        float: left;
+        width: 400px;
+        height: auto;          
+        margin-left:calc(50% - 200px);
+        margin-top:200px;            
+        background-color: #171E28;
+        padding: 20px 30px;
+    }
+
+        
+
+        .login-form-header-holder {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: auto;             
+            text-align: center;
+        }
+
+        
+
+        .header {
+            position: relative;
+            float: left;
+            height: auto;
+            width: calc(100% - 40px);
+            margin-top: 40px;  
+            margin-bottom:20px;
+            box-shadow: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;   
+        }              
+
+            .input-field-wrapper {
+                position: relative;
+                float:left;
+                width: calc(100% - 60px);          
+                padding: 20px 30px;
+            }
+
+                       
+                .label {
+                    position: relative;
+                    float:left;
+                    font-size: 12px;
+                    font-weight: bold;   
+                    width: 100%;   
+                    color: #415066;       
+                }   
+                
+                .value {
+                    position: relative;
+                    float:left;
+                    font-size: 12px;
+                    font-weight: bold;   
+                    width: calc(100% - 20px);
+                    padding: 0px 10px; 
+                    color: #415066;   
+                }
+                
+                
+                .field {
+                    position: relative;
+                    float: left;
+                    outline: none;
+                    border:none;
+                    border-bottom:1px solid #6d7277;         
+                    height: 30px;
+                    line-height: 30px;
+                    width: calc(100% - 20px);
+                    padding: 0px 10px;
+                    margin-bottom: 20px;       
+                    font-size: 12px;
+                    font-weight: 600;          
+                    color:white;
+                    background-color: transparent; 
+                    
+                }
+                
+
+                .button-holder {
+                    position: relative;
+                    float: left;
+                    width: calc(100% - 60px);
+                    padding: 20px 30px 20px 30px;             
+                }
+    
+                    .login-btn {
+                        position: relative;
+                        float: left;          
+                        color: rgb(120, 117, 117);
+                        margin-right: 20px;
+                        height: 40px;            
+                        line-height: 40px;
+                        text-transform: uppercase;
+                        width: 100%;
+                        font-weight: 600;
+                        font-size: 12px;
+                        border: 1px solid #FD7348;
+                        color: #415066;
+                        background-color: transparent;              
+                        user-select: none;
+                        cursor: pointer;
+                        outline: none;
+                        text-align: center;
+                    }     
+
+            .btn {
+                position: relative;
+                float: left;
+                height: 40px;
+                padding: 0 20px;
+                line-height: 40px;
+                width: fit-content;
+                font-weight: 600;
+                font-size: 12px;           
+                color: #525252;
+                background-color: white;
+                border-radius: 25px;
+                user-select: none;
+                cursor: pointer;          
+                outline:none;   
+            }
+                .btn.secondary-btn {
+                    color: white;
+                    background-color: #0954c4; 
+                    margin-right:20px;
+                }
+                .btn.main-btn {
+                    position: relative;
+                    float: left;
+                    background-color: #ff5722;
+                    color:white;
+                    margin-right:20px;
+                }
+
+                .login-form-section .btn.main-btn {
+                    float:none;
+                    margin:0 auto;
+                }  
+
+    .content {
+        float:left;
+        width:100%;
+        height:100%;     
+    }
+
+    .side-section {
+        position: fixed;
+        top:0px;
+        left:0px;
+        float:left;
+        width: 80px;
+        height: 100%;
+        background-color: #131821;
+        border-right: 1px solid #282F3D;  
+    }
+
+        .side-list {
+            position: relative;
+            float: left;
+            list-style-type: none;          
+            margin-top: 400px;
+            padding: 20px 20px;
+            height: 141px;
+        }
+
+            .side-list-item {
+                position: relative;
+                float:left;
+                height: 30px;
+                line-height: 30px;
+                text-decoration:none;
+                width: 100%;
+                text-align: center;
+                margin-bottom:30px;
+            }
+
+            .side-list-item .active:before {
+                position: absolute;
+                content: "";
+                top: -9px;
+                left: -30px;
+                width: 5px;
+                height: 40px;
+                background-color: #FD7348;
+                border-radius: 10px;
+                box-shadow: 0px 0px 5px 1px rgb(253 115 72 / 47%);                              
+            }          
+
+                .list-icon {
+                    position: relative;
+                    float:left;
+                    width: 30px;
+                    height: 30px;                  
+                    background-size:100%;
+                    background-repeat: no-repeat;
+                    background-position:center;
+                }
+                .list-icon.home {
+                    background-image:url(./assets/home-ic.svg);
+                }
+                .list-icon.home.active {
+                    background-image:url(./assets/home-ac-ic.svg);
+                }
+                .list-icon.recipes {
+                    background-image:url(./assets/recipe.svg);
+                }
+                .list-icon.recipes.active {
+                    background-image:url(./assets/recipe-ac-icon.svg);
+                }
+
+    .modal-holder {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+    }   
+
+        .modal-new-recipe {
+            position: relative;
+            float:left; 
+            width: 600px;
+            height: fit-content;
+            margin-left:calc(50% - 300px);            
+            background-color: #8bc34a;;
+            margin-top:100px;
+            padding: 20px;
+        }       
+               
+
+                .header {
+                    position: relative;
+                    float: left;
+                    font-size: 22px;
+                    font-weight: 600;
+                    color: white;
+                    width: 100%;
+                    height: 30px;
+                    line-height: 30px;
+                }
+                
+                .input-section {
+                    position: relative;
+                    float:left;
+                    width: 100%;
+                    height:auto ;
+                }
+
+                    .ingredients-holder {                       
+                        position: relative;
+                        float: left;
+                        width: calc(100% - 24px);
+                        height: 300px;
+                        padding: 0 14px 0 10px;
+                        overflow-y: scroll;                    
+                    }                   
+
+                        .input-container {
+                            position: relative;
+                            float: left;
+                            width: 100%;
+                            height: fit-content;
+                        }
+
+                            .label, .value {
+                                position: relative;
+                                float: left;
+                                font-size:14px;
+                                font-weight: 600;
+                                color:white;
+                                height: 20px;
+                            }
+
+
+                            input.field {
+                                position: relative;
+                                float:left;
+                                outline: none;
+                                background-color:transparent;
+                                font-size:14px;
+                                font-weight: 600;
+                                color:white;
+                            }
+                    
+
+                    .modal-new-recipe .btn.main-btn {
+                        float:right;
+                    }
+
+                    .modal-new-recipe textarea {
+                        width: calc(100% - 20px);
+                        padding: 10px;
+                    }
+                       
+                    .modal-new-recipe .close-icon {
+                        position: absolute;
+                        top:0px;
+                        right:0px;
+                        width: 15px;
+                        height: 15px;
+                        background-image: url(./assets/cancel.png);
+                        background-position: center;
+                        background-size:100%;
+                        background-repeat:no-repeat;
+                        z-index: 5;
+                    }
+
+                    .img-grid {
+                        position: relative;
+                        float: left;
+                        height: fit-content;
+                        margin-top: 10px;                      
+                        width: fit-content;
+                        margin-bottom: 20px;
+                    }           
+
+
+                        .img-grid .addable-img {
+                            float: left;
+                            width: 100px;
+                            height: 100px;
+                            border: 2px solid #888d99;
+                            background-image: url('./assets/plus.png');
+                            background-position: 50% 20px;
+                            background-size: 30px 30px;
+                            background-repeat: no-repeat;
+                            transition:all 0.5s ease;
+                        }
+
+                        .img-grid .edited-img {
+                            float: left;
+                            width: 100px;
+                            height: 100px;
+                            border: 2px solid #888d99;                         
+                            background-position: center;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            transition:all 0.5s ease;
+                        }
+
+                            .img-grid .addable-img:not(:first-child) { margin-left:10px; }
+
+                            .img-grid .edited-img:not(:first-child) { margin-left:10px; }
+
+                            .img-grid .addable-img.added {
+                                background-size: 100% 100%;
+                                background-position: top;
+                            }
+
+                            .img-grid .addable-img:hover { 
+                                background-image: url('./assets/plus.png');
+                                border-color:#FD7348;
+                            }
+
+                            .img-grid .addable-img span {
+                                font-size: 8px;
+                                color: #888d99;
+                                width: calc(100% - 20px);
+                                padding-left: 10px;
+                                padding-right: 10px;
+                                margin-top: 60px;
+                                font-weight: bold;
+                                transition: all 0.5s ease;
+                                float: left;
+                                text-transform: uppercase;
+                                text-align: center;
+                            }
+                            .img-grid .addable-img:hover span { color:#FD7348; }
+                        
+
+    .upper-section {
+        position: fixed;
+        top:0px;
+        left:0px;
+        width: 100%;
+        height: 80px;
+        background-color: #131821;        
+    }
+
+        .upper-section .username-holder {
+            position: relative;
+            float:right;            
+        }
+
+            .upper-section .username-holder .username{
+                position: relative;
+                float: right;
+                width: 130px;
+                font-size: 15px;
+                color: white;         
+                line-height: 80px;
+            }
+
+        .upper-section .icon-holder {
+            position: relative;
+            float: right;
+            margin-right: 20px;
+            width: 30px;
+            height: 100%;
+        }
+
+        .search-container {
+            position: relative;
+            float: left;
+            width: 200px;
+            height: 50px;
+            margin-left: 128px;
+        }
+
+        .search-container:focus { border-color:tomato; } 
+        
+            .search-container input {
+                position: relative;
+                float: left;         
+                border-radius: 72px;
+                padding: 10px 20px;
+                color: white;
+                border: none;
+                width: 330px;
+                height: 25px;
+                line-height: 50px;
+                outline: none;
+                margin-top: 15px;
+                background-color: rgb(0 0 0 / 0.5);
+                font-weight: 500;
+                font-size: 12px;
+                cursor: pointer;
+            }
+
+            
+            .search-container .search-icon {
+                position: absolute;
+                top: 28px;
+                left: 325px;
+                background-image: url(./assets/search-ic.svg);
+                background-position: center;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                width: 20px;
+                height: 20px;
+                z-index: 5;
+            }
+
+
+      
+
+    .content-section {
+        position: relative;
+        float:left;
+        width: calc(100% - 80px);
+        height: calc(100% - 80px);
+        margin-top:80px;
+        margin-left:80px;
+        background-color: #171E28;
+    }
+
+        .recipes-holder {
+            position: relative;
+            float: left;
+            width: calc(100% - 80px);
+            height: fit-content;
+            margin-left: 40px;               
+        }
+
+            .recipes-holder .recipes-main-title {
+                position: relative;
+                float: left;
+                margin-left: 20px;
+                color: white;
+                margin-bottom: 20px;
+                font-size: 30px;
+                font-weight: 600;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .recipes-holder .button-holder {
+                position: relative;
+                float: right;
+                width: fit-content;
+                margin-top:10px;
+            }
+
+        .cards-holder {
+            position: relative;
+            float:left;
+            width: 100%;
+            height: 100%;           
+        }
+
+            .row-header {
+                position: relative;
+                float:left;
+                width: 100%;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                color: #415066;
+                background-color: #131821;
+                background-color: #131821;
+            }
+
+                .row-header div {
+                    position: relative;
+                    float:left;
+                    color:#415066;
+                    font-size:14px;
+                }
+
+            .card {
+                position: relative;
+                float:left;
+                width: 100%;
+                height: 70px;
+                line-height: 70px;
+                background-color:#171E28;
+                background-color:#1C2430;  
+                margin-bottom:10px;                 
+            }
+
+                .card .card-item {                   
+                    position: relative;
+                    float: left;
+                    height: 70px;
+                    font-weight: 600;
+                    color: rgb(0 0 0 / 0.5);
+                    text-align: center;
+                    line-height: 70px; 
+                   
+                }
+
+                    .card .card-item .card-value {                   
+                        float: left;
+                        width: 100%;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: 500; 
+                        white-space: nowrap;
+                        overflow: hidden;
+                        height: 70px;
+                        text-overflow: ellipsis;
+                    }
+
+                    .icons-holder {
+                        position: relative;
+                        float: left;                       
+                        width: fit-content;
+                        height: 70px;
+                        line-height: 70px;
+                        padding: 18px;                   
+                        margin-left: 20px;                       
+                    }
+
+                        .icons-holder .icon {
+                            position: relative;
+                            float: left;
+                            width: 30px;
+                            height: 30px;                           
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            background-size: 100%;
+                            margin-right: 30px;
+                        }
+
+                        .icons-holder .icon.edit {                     
+                            background-image:url(./assets/edit.svg);                     
+                        }
+
+                        .icons-holder .icon.delete {                     
+                            background-image:url(./assets/delete.svg);                     
+                        }
+
+        .paging-holder {
+            position: relative;
+            float:left;
+            width: 100%;
+            height: 20px;        
+        }
+
+            .paging {
+                position: relative;
+                float:left;
+                width: 200px;
+                height: 20px;
+                margin-left:calc(50% - 100px);            
+            }
+                .paging .page {
+                    position: relative;
+                    float:left;
+                    width: 20px;
+                    height: 20px;
+                    line-height: 20px;
+                    text-align: center;
+                    margin-right:10px;                 
+                    background-color: #1C2430;
+                    color:white;
+                    font-size: 14px;
+                    font-weight: 600;                 
+                }
+
+                .paging .page.active {
+                    background: rgb(255, 114, 91);
+                    color:white;
+                 }
+
+                 .paging .page.hover {
+                    background: rgb(255, 114, 91);
+                    color:white;
+                 }
+        
+
+
+
+
+    @media only screen and (min-width:1280px) {
+        .col-lg-1 {width: 8.33%;}
+        .col-lg-2 {width: 16.66%;}
+        .col-lg-3 {width: 25%;}
+        .col-lg-4 {width: 33.33%;}
+        .col-lg-5 {width: 41.66%;}
+        .col-lg-6 {width: 50%;}
+        .col-lg-7 {width: 58.33%;}
+        .col-lg-8 {width: 66.66%;}
+        .col-lg-9 {width: 75%;}
+        .col-lg-10 {width: 83.33%;}
+        .col-lg-11 {width: 91.66%;}
+        .col-lg-12 {width: 100%;}
+        .col-lg-hidden { display:none !important; }
+    }
+
+    @media only screen and (max-width: 1280px) and (min-width:760px) {   
+        .col-md-1 {width: 8.33%;}
+        .col-md-2 {width: 16.66%;}
+        .col-md-3 {width: 25%;}
+        .col-md-4 {width: 33.33%;}
+        .col-md-5 {width: 41.66%;}
+        .col-md-6 {width: 50%;}
+        .col-md-7 {width: 58.33%;}
+        .col-md-8 {width: 66.66%;}
+        .col-md-9 {width: 75%;}
+        .col-md-10 {width: 83.33%;}
+        .col-md-11 {width: 91.66%;}
+        .col-md-12 {width: 100%;}
+        .col-md-hidden { display:none !important; }
+    }
+
+    @media only screen and (max-width: 760px) and (min-width:360px) {            
+    .col-sm-1 {width: 8.33%;}
+    .col-sm-2 {width: 16.66%;}
+    .col-sm-3 {width: 25%;}
+    .col-sm-4 {width: 33.33%;}
+    .col-sm-5 {width: 41.66%;}
+    .col-sm-6 {width: 50%;}
+    .col-sm-7 {width: 58.33%;}
+    .col-sm-8 {width: 66.66%;}
+    .col-sm-9 {width: 75%;}
+    .col-sm-10 {width: 83.33%;}
+    .col-sm-11 {width: 91.66%;}
+    .col-sm-12 {width: 100%;}
+    .col-sm-hidden { display:none !important; }
+}
+
+    @media only screen and (max-width: 360px) {
+        .col-xs-1 {width: 8.33%;}
+        .col-xs-2 {width: 16.66%;}
+        .col-xs-3 {width: 25%;}
+        .col-xs-4 {width: 33.33%;}
+        .col-xs-5 {width: 41.66%;}
+        .col-xs-6 {width: 50%;}
+        .col-xs-7 {width: 58.33%;}
+        .col-xs-8 {width: 66.66%;}
+        .col-xs-9 {width: 75%;}
+        .col-xs-10 {width: 83.33%;}
+        .col-xs-11 {width: 91.66%;}
+        .col-xs-12 {width: 100%;}
+        .col-xs-hidden { display:none !important; }
+    }
+
+        
+            
+
+                
